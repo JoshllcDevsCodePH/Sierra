@@ -2,15 +2,20 @@ import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Clicker } from "./components/Clicker";
 import { Footer } from "./components/Footer";
+import { Route, Routes } from "react-router-dom";
+import { IndexPage } from "./components/Pages";
+import { BoostsPage } from "./components/Pages/boosts";
 
 function App() {
   const [count, setCount] = useState<number>(40432);
-  const [maxPower, setMaxPower] = useState<number>(5000);
-  const [click, setClick] = useState<number>(1);
-  const [currentPower, setCurrentPower] = useState<number>(5000);
+  const [maxPower, setMaxPower] = useState<number>(1000);
+  const [click, setClick] = useState<number>(14);
+  const [progress, setProgress] = useState<number>(100);
+  const [currentPower, setCurrentPower] = useState<number>(1000);
   const [isIncreasing, setIsIncreasing] = useState<boolean>(false);
 
   useEffect(() => {
+    setProgress((currentPower / maxPower) * 100);
     console.log(currentPower < maxPower, !isIncreasing);
     if (currentPower < maxPower && !isIncreasing) {
       setIsIncreasing(true);
@@ -30,27 +35,23 @@ function App() {
   }, [currentPower, maxPower, isIncreasing]);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "space-between",
-        background:
-          "linear-gradient(0deg, #FCA301 2.42%, #EDB115 45.96%, #000 80.77%, #000 99.14%)",
-        boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-        color: "white",
-        height: "100vh",
-      }}>
-      <Clicker
-        click={click}
-        count={count}
-        currentPower={currentPower}
-        setCount={setCount}
-        setCurrentPower={setCurrentPower}
+    <Routes>
+      <Route
+        index
+        element={
+          <IndexPage
+            click={click}
+            count={count}
+            currentPower={currentPower}
+            setCount={setCount}
+            setCurrentPower={setCurrentPower}
+            progress={progress}
+            maxPower={maxPower}
+          />
+        }
       />
-      <Footer maxPower={maxPower} currentPower={currentPower} />
-    </Box>
+      <Route path={"boosts"} element={<BoostsPage count={count} />} />
+    </Routes>
   );
 }
 

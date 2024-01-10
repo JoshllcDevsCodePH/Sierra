@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Avatar, Box } from "@mui/material";
-import React, { FC } from "react";
 import { AnimatedCounter } from "react-animated-counter";
+import { Balance } from "./Balance";
 
 export type ClickerProps = {
   count: number;
@@ -10,13 +10,13 @@ export type ClickerProps = {
   setCurrentPower: (value: React.SetStateAction<number>) => void;
   click: number;
 };
-export const Clicker: FC<ClickerProps> = ({
+export const Clicker = ({
   count,
   setCount,
   currentPower,
   setCurrentPower,
   click,
-}) => {
+}: ClickerProps) => {
   const increase = () => {
     setCount(count + click);
     setCurrentPower(currentPower - click);
@@ -25,18 +25,7 @@ export const Clicker: FC<ClickerProps> = ({
 
   return (
     <>
-      <Box sx={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "20vh" }}>
-        <Avatar src="logo.png" sx={{ width: "30px", height: "30px" }} />
-        <AnimatedCounter
-          includeDecimals={false}
-          includeCommas
-          incrementColor="white"
-          decrementColor="white"
-          value={count}
-          color="white"
-          fontSize="60px"
-        />
-      </Box>
+      <Balance count={count} />
       <Box
         sx={{
           position: "relative",

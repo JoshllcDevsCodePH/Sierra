@@ -2,26 +2,29 @@ import styled from "@emotion/styled";
 import { Box, Button, ButtonGroup, Icon, IconButton, Typography } from "@mui/material";
 import { FC } from "react";
 import { ProgressBar } from "./ProgressBar";
+import { Link as RouterLink } from "react-router-dom";
+import Link from "@mui/material/Link";
 
 export type FooterProps = {
   maxPower: number;
   currentPower: number;
+  progress: number;
 };
-export const Footer: FC<FooterProps> = ({ maxPower, currentPower }) => {
+export const Footer: FC<FooterProps> = ({ maxPower, currentPower, progress }) => {
   return (
-    <>
+    <Box sx={{ width: "100%", marginBottom: "15px" }}>
       <Box
         sx={{
           display: "flex",
-          alignItems: "flex-end",
-          justifyContent: "space-around",
-          width: "100%",
-          marginBottom: "60px",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginBottom: "20px",
+          marginInline: "20px",
         }}>
         <Box sx={{ display: "flex" }}>
-          <Icon sx={{ width: "50px", height: "50px", fontSize: "2rem" }}>⚡</Icon>
+          <Icon sx={{ width: "40px", height: "35px", fontSize: "1.7rem" }}>⚡</Icon>
           <Box>
-            <Typography variant="h5" sx={{ lineHeight: 1, fontWeight: 900 }}>
+            <Typography variant="h6" sx={{ lineHeight: 1, fontWeight: 900 }}>
               {currentPower}
             </Typography>
             <Typography
@@ -35,28 +38,30 @@ export const Footer: FC<FooterProps> = ({ maxPower, currentPower }) => {
         <Menu color="inherit" variant="text">
           {menu.map((menuItem) => {
             return (
-              <Button>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    marginInline: "10px",
-                  }}>
-                  <Icon sx={{ width: "30px", height: "30px", fontSize: "1.2rem" }}>
-                    {menuItem.icon}
-                  </Icon>
-                  <Typography sx={{ fontSize: "12px", textTransform: "none" }}>
-                    {menuItem.title}
-                  </Typography>
-                </Box>
-              </Button>
+              <Link sx={{ color: "white" }} component={RouterLink} to={menuItem.link}>
+                <Button>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      marginInline: "10px",
+                    }}>
+                    <Icon sx={{ width: "22px", height: "22px", fontSize: "1rem" }}>
+                      {menuItem.icon}
+                    </Icon>
+                    <Typography sx={{ fontSize: "12px", textTransform: "none" }}>
+                      {menuItem.title}
+                    </Typography>
+                  </Box>
+                </Button>
+              </Link>
             );
           })}
         </Menu>
       </Box>
-      {/* <ProgressBar /> */}
-    </>
+      <ProgressBar progress={progress} />
+    </Box>
   );
 };
 
@@ -70,7 +75,7 @@ const Menu = styled(ButtonGroup)(() => ({
 }));
 
 const menu = [
-  { icon: "🧸", title: "Frens" },
-  { icon: "🪙", title: "Earn" },
-  { icon: "🚀", title: "Boosts" },
+  { icon: "🧸", title: "Frens", link: "/boosts" },
+  { icon: "🪙", title: "Earn", link: "/boosts" },
+  { icon: "🚀", title: "Boosts", link: "/boosts" },
 ];
