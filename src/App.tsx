@@ -19,7 +19,7 @@ function App() {
   const [progress, setProgress] = useState<number>(100);
   const [currentPower, setCurrentPower] = useState<number>(1000);
   const [isIncreasing, setIsIncreasing] = useState<boolean>(false);
-  telegram.BackButton.show();
+
   telegram.expand();
   useEffect(() => {
     setProgress((currentPower / maxPower) * 100);
