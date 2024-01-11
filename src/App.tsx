@@ -5,7 +5,6 @@ import { Footer } from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
 import { IndexPage } from "./components/Pages";
 import { BoostsPage } from "./components/Pages/boosts";
-import { TelegramWebApps } from "telegram-webapps-types";
 
 declare global {
   interface Window {
