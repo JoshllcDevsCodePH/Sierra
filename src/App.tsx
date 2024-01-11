@@ -13,14 +13,14 @@ declare global {
   }
 }
 function App() {
-  const telegram = window.Telegram.WebApp as TelegramWebApps.WebApp;
+  const telegram = window.Telegram.WebApp;
   const [count, setCount] = useState<number>(40432);
   const [maxPower, setMaxPower] = useState<number>(1000);
   const [click, setClick] = useState<number>(14);
   const [progress, setProgress] = useState<number>(100);
   const [currentPower, setCurrentPower] = useState<number>(1000);
   const [isIncreasing, setIsIncreasing] = useState<boolean>(false);
-  telegram.MainButton.enable();
+  telegram.BackButton.show();
   telegram.expand();
   useEffect(() => {
     setProgress((currentPower / maxPower) * 100);
