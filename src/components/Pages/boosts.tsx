@@ -9,7 +9,9 @@ export const BoostsPage: FC<BoostsPageProps> = ({ count }) => {
   const telegram = window.Telegram.WebApp;
   const navigate = useNavigate();
   telegram.BackButton.show();
-  telegram.BackButton.onClick(navigate("/"));
+  telegram.BackButton.onClick(() => {
+    navigate("/");
+  });
   return (
     <>
       <Box

@@ -1,7 +1,4 @@
-import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Clicker } from "./components/Clicker";
-import { Footer } from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
 import { IndexPage } from "./components/Pages";
 import { BoostsPage } from "./components/Pages/boosts";
