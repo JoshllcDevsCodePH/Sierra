@@ -5,18 +5,25 @@ import { Footer } from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
 import { IndexPage } from "./components/Pages";
 import { BoostsPage } from "./components/Pages/boosts";
+import { TelegramWebApps } from "telegram-webapps-types";
 
+declare global {
+  interface Window {
+    Telegram: any;
+  }
+}
 function App() {
+  const telegram = window.Telegram.WebApp as TelegramWebApps.WebApp;
   const [count, setCount] = useState<number>(40432);
   const [maxPower, setMaxPower] = useState<number>(1000);
   const [click, setClick] = useState<number>(14);
   const [progress, setProgress] = useState<number>(100);
   const [currentPower, setCurrentPower] = useState<number>(1000);
   const [isIncreasing, setIsIncreasing] = useState<boolean>(false);
-
+  telegram.MainButton.enable();
+  telegram.expand();
   useEffect(() => {
     setProgress((currentPower / maxPower) * 100);
-    console.log(currentPower < maxPower, !isIncreasing);
     if (currentPower < maxPower && !isIncreasing) {
       setIsIncreasing(true);
 

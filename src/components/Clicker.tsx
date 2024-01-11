@@ -20,7 +20,6 @@ export const Clicker = ({
   const increase = () => {
     setCount(count + click);
     setCurrentPower(currentPower - click);
-    console.log(currentPower);
   };
 
   return (

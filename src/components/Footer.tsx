@@ -36,9 +36,13 @@ export const Footer: FC<FooterProps> = ({ maxPower, currentPower, progress }) =>
           </Box>
         </Box>
         <Menu color="inherit" variant="text">
-          {menu.map((menuItem) => {
+          {menu.map((menuItem, index) => {
             return (
-              <Link sx={{ color: "white" }} component={RouterLink} to={menuItem.link}>
+              <Link
+                key={index}
+                sx={{ color: "white" }}
+                component={RouterLink}
+                to={menuItem.link}>
                 <Button>
                   <Box
                     sx={{
