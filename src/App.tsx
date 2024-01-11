@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { IndexPage } from "./components/Pages";
 import { BoostsPage } from "./components/Pages/boosts";
+import { useExpand } from "@vkruglikov/react-telegram-web-app";
 
 declare global {
   interface Window {
@@ -16,8 +17,8 @@ function App() {
   const [progress, setProgress] = useState<number>(100);
   const [currentPower, setCurrentPower] = useState<number>(1000);
   const [isIncreasing, setIsIncreasing] = useState<boolean>(false);
-
-  telegram.expand();
+  const [isExpanded, expand] = useExpand();
+  expand();
   useEffect(() => {
     setProgress((currentPower / maxPower) * 100);
     if (currentPower < maxPower && !isIncreasing) {

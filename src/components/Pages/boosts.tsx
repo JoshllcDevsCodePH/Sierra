@@ -2,18 +2,22 @@ import { Box } from "@mui/material";
 import { Balance } from "../Balance";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
+import { BackButton } from "@vkruglikov/react-telegram-web-app";
+
 export type BoostsPageProps = {
   count: number;
 };
 export const BoostsPage: FC<BoostsPageProps> = ({ count }) => {
   const telegram = window.Telegram.WebApp;
   const navigate = useNavigate();
-  telegram.BackButton.show();
-  telegram.BackButton.onClick(() => {
-    navigate("/");
-  });
+
   return (
     <>
+      <BackButton
+        onClick={() => {
+          navigate("/");
+        }}
+      />
       <Box
         sx={{
           display: "flex",

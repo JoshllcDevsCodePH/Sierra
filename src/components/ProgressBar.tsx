@@ -13,6 +13,7 @@ export const ProgressBar: FC<ProgressBarProps> = ({ progress }) => {
         backgroundColor: "rgba(255, 255, 255, 0.45)",
         height: "12px",
         borderRadius: "6px",
+
         "&:before": {
           content: '""',
           position: "absolute",
@@ -22,6 +23,7 @@ export const ProgressBar: FC<ProgressBarProps> = ({ progress }) => {
           top: "0",
           left: "0",
           borderRadius: "6px",
+          transition: "width 0.2s ease-out",
         },
       }}></Box>
   );

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Avatar, Box } from "@mui/material";
-import { AnimatedCounter } from "react-animated-counter";
 import { Balance } from "./Balance";
+import { useHapticFeedback } from "@vkruglikov/react-telegram-web-app";
 
 export type ClickerProps = {
   count: number;
@@ -17,6 +17,7 @@ export const Clicker = ({
   setCurrentPower,
   click,
 }: ClickerProps) => {
+  const [impactOccurred] = useHapticFeedback();
   const increase = () => {
     setCount(count + click);
     setCurrentPower(currentPower - click);
@@ -43,6 +44,7 @@ export const Clicker = ({
         }}>
         <ClickerButton
           onClick={() => {
+            impactOccurred("medium");
             increase();
           }}
           src="logo.png"
