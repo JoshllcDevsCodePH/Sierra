@@ -24,6 +24,7 @@ export const IndexPage: FC<IndexPageProps> = ({
   return (
     <Box
       sx={{
+        position: "relative",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -33,6 +34,17 @@ export const IndexPage: FC<IndexPageProps> = ({
         boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
         color: "white",
         height: "100vh",
+        "&:before": {
+          content: '""',
+          position: "absolute",
+          width: "0%",
+          height: "0%",
+          boxShadow:
+            "-1px 0px 100px 80px rgba(255, 225, 77, 0.6),  0px 0px 60px 127px rgba(250, 250, 250, 0.6)",
+          borderRadius: "50%",
+          top: "50%",
+          left: "50%",
+        },
       }}>
       <Clicker
         maxPower={maxPower}

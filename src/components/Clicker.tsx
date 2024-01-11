@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
-import { Avatar, Box, Button } from "@mui/material";
-import { Balance } from "./Balance";
+import { Avatar, Box, Button, Typography } from "@mui/material";
 import { useHapticFeedback } from "@vkruglikov/react-telegram-web-app";
 import { useEffect, useState } from "react";
+import { Balance } from "./Balance";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 export type ClickerProps = {
   count: number;
@@ -49,50 +50,54 @@ export const Clicker = ({
         sx={{
           position: "relative",
           marginTop: "-10vh",
-          "&:before": {
-            content: '""',
-            position: "absolute",
-            width: "90%",
-            height: "90%",
-            boxShadow:
-              "-1px 0px 100px 80px rgba(255, 225, 77, 0.6),  0px 0px 60px 27px rgba(250, 250, 250, 0.6)",
-            borderRadius: "50%",
-            top: "5%",
-            left: "5%",
-          },
         }}>
-        <Button
-          disabled={disabled}
-          sx={{
-            borderRadius: "50%",
-            width: 250,
-            height: 250,
-            zIndex: 12,
-            "&:active": {
-              transform: "scale(0.98)",
-            },
-            "&.Mui-disabled": {
-              // background: "red",
-            },
-          }}>
-          <ClickerButton
-            onClick={() => {
-              impactOccurred("medium");
-              increase();
-            }}
-            src="logo.png"
-          />
-          {disabled && (
-            <Box
+        {!disabled ? (
+          <AnimatedBox>
+            <Button
+              disabled={disabled}
               sx={{
-                position: "absolute",
                 borderRadius: "50%",
                 width: 250,
                 height: 250,
-                background: "rgba(0, 0, 0, 0.35)",
-              }}></Box>
-          )}
-        </Button>
+                zIndex: 12,
+                "&:active": {
+                  transform: "scale(0.98)",
+                },
+                "&.Mui-disabled": {
+                  // background: "red",
+                },
+              }}>
+              <ClickerButton
+                onClick={() => {
+                  impactOccurred("medium");
+                  increase();
+                }}
+                src="logo.png"
+              />
+            </Button>
+          </AnimatedBox>
+        ) : (
+          <Box
+            sx={{
+              borderRadius: "50%",
+              width: 250,
+              height: 250,
+              top: 0,
+              left: 0,
+            }}>
+            <AnimatedBox>
+              <CountdownCircleTimer
+                isPlaying
+                size={250}
+                duration={10}
+                trailColor="rgba(0, 0, 0, 0)"
+                colors="rgba(255, 255, 255, 0.5)"
+                onComplete={() => ({ shouldRepeat: true, delay: 1 })}>
+                {renderTime}
+              </CountdownCircleTimer>
+            </AnimatedBox>
+          </Box>
+        )}
       </Box>
     </>
   );
@@ -102,3 +107,30 @@ const ClickerButton = styled(Avatar)(() => ({
   width: 250,
   height: 250,
 }));
+
+const renderTime = ({ remainingTime }: { remainingTime: number }) => {
+  return (
+    <Typography sx={{ fontWeight: "900" }} variant="h4">
+      {remainingTime}
+    </Typography>
+  );
+};
+
+const AnimatedBox = styled(Box)`
+  animation: appearAnimation 0.5s ease-out;
+
+  @keyframes appearAnimation {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+`;
