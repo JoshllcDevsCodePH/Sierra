@@ -35,6 +35,7 @@ export const IndexPage: FC<IndexPageProps> = ({
         height: "100vh",
       }}>
       <Clicker
+        maxPower={maxPower}
         click={click}
         count={count}
         currentPower={currentPower}

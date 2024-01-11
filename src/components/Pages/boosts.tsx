@@ -8,7 +8,6 @@ export type BoostsPageProps = {
   count: number;
 };
 export const BoostsPage: FC<BoostsPageProps> = ({ count }) => {
-  const telegram = window.Telegram.WebApp;
   const navigate = useNavigate();
 
   return (
