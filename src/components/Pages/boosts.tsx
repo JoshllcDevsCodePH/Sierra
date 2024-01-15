@@ -2,14 +2,14 @@ import { Box, Button, Card, Typography } from "@mui/material";
 import { Balance } from "../Balance";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import { BackButton } from "@vkruglikov/react-telegram-web-app";
+import { BackButton, useWebApp } from "@vkruglikov/react-telegram-web-app";
 
 export type BoostsPageProps = {
   count: number;
 };
 export const BoostsPage: FC<BoostsPageProps> = ({ count }) => {
   const navigate = useNavigate();
-
+  const WebApp = useWebApp();
   return (
     <>
       <BackButton
@@ -32,7 +32,7 @@ export const BoostsPage: FC<BoostsPageProps> = ({ count }) => {
         <Balance count={count} />
         <Typography sx={{ marginTop: "10px" }}>Your balance</Typography>
         <Typography variant="h4" sx={{ marginTop: "100px" }}>
-          🚀 Boosts 🚀
+          🚀 {WebApp?.user?.id} 🚀
         </Typography>
         <Typography variant="h4" sx={{ marginTop: "15px" }}>
           Coming soon!
