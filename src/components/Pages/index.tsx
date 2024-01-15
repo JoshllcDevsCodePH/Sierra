@@ -45,7 +45,7 @@ export const IndexPage: FC<IndexPageProps> = ({
           zIndex: -100,
           backgroundRepeat: "no-repeat",
           transform: "scale(1.1)",
-          filter: "blur(6px)",
+          filter: "blur(8px)",
           "-webkit-filter": " blur(8px)",
           "&:before": {
             content: '""',

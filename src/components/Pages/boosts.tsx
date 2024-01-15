@@ -22,7 +22,7 @@ export const BoostsPage: FC<BoostsPageProps> = ({ count }) => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "space-between",
+          // justifyContent: "space-between",
           background:
             "linear-gradient(0deg, rgba(185, 123, 0, 0.74) -70.7%, #000 35.94%)",
           boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
@@ -30,24 +30,13 @@ export const BoostsPage: FC<BoostsPageProps> = ({ count }) => {
           minHeight: "100vh",
         }}>
         <Balance count={count} />
-        <Box>
-          <Typography variant="h6">Free daily boosters</Typography>
-          <Box sx={{ display: "flex" }}>
-            <Button>
-              <Card>1</Card>
-            </Button>
-            <Button>1</Button>
-          </Box>
-        </Box>
-        <Box>
-          <Typography variant="h6">Free daily boosters</Typography>
-          <Box sx={{ display: "flex" }}>
-            <Button>
-              <Card>1</Card>
-            </Button>
-            <Button>1</Button>
-          </Box>
-        </Box>
+        <Typography sx={{ marginTop: "10px" }}>Your balance</Typography>
+        <Typography variant="h4" sx={{ marginTop: "100px" }}>
+          🚀 Boosts 🚀
+        </Typography>
+        <Typography variant="h4" sx={{ marginTop: "15px" }}>
+          Coming soon!
+        </Typography>
       </Box>
     </>
   );
