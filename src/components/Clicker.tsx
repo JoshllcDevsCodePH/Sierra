@@ -49,7 +49,7 @@ export const Clicker = ({
       <Box
         sx={{
           position: "relative",
-          marginTop: "-10vh",
+          marginTop: "-15vh",
         }}>
         {!disabled ? (
           <AnimatedBox>
@@ -91,7 +91,7 @@ export const Clicker = ({
                 size={250}
                 duration={10}
                 trailColor="rgba(0, 0, 0, 0)"
-                colors="rgba(255, 255, 255, 0.5)"
+                colors="rgba(255, 255, 255, 0.2)"
                 onComplete={() => ({ shouldRepeat: true, delay: 1 })}>
                 {renderTime}
               </CountdownCircleTimer>
@@ -110,7 +110,9 @@ const ClickerButton = styled(Avatar)(() => ({
 
 const renderTime = ({ remainingTime }: { remainingTime: number }) => {
   return (
-    <Typography sx={{ fontWeight: "900" }} variant="h4">
+    <Typography
+      sx={{ fontWeight: "900", color: "rgba(255, 255, 255, 0.3)" }}
+      variant="h4">
       {remainingTime}
     </Typography>
   );

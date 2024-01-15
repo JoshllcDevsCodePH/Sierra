@@ -29,23 +29,40 @@ export const IndexPage: FC<IndexPageProps> = ({
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-between",
-        background:
-          "linear-gradient(0deg, #FCA301 2.42%, #EDB115 45.96%, #000 80.77%, #000 99.14%)",
-        boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+        overflow: "hidden",
         color: "white",
         height: "100vh",
-        "&:before": {
-          content: '""',
-          position: "absolute",
-          width: "0%",
-          height: "0%",
-          boxShadow:
-            "-1px 0px 100px 80px rgba(255, 225, 77, 0.6),  0px 0px 60px 127px rgba(250, 250, 250, 0.6)",
-          borderRadius: "50%",
-          top: "50%",
-          left: "50%",
-        },
       }}>
+      <Box
+        sx={{
+          margin: "0",
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          backgroundImage: 'url("background.svg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          zIndex: -100,
+          backgroundRepeat: "no-repeat",
+          transform: "scale(1.1)",
+          filter: "blur(6px)",
+          "-webkit-filter": " blur(8px)",
+          "&:before": {
+            content: '""',
+            position: "absolute",
+            width: "250px",
+            height: "250px",
+            borderRadius: "250px",
+            background:
+              "radial-gradient(81.76% 81.76% at 50% 50%, #FFF 0%, #FFE998 100%)",
+            filter: "blur(70px)",
+            left: 0,
+            right: 0,
+            bottom: 0,
+            top: 0,
+            margin: "auto",
+          },
+        }}></Box>
       <Clicker
         maxPower={maxPower}
         click={click}

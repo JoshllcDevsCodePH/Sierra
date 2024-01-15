@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Button, Card, Typography } from "@mui/material";
 import { Balance } from "../Balance";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
@@ -30,6 +30,24 @@ export const BoostsPage: FC<BoostsPageProps> = ({ count }) => {
           minHeight: "100vh",
         }}>
         <Balance count={count} />
+        <Box>
+          <Typography variant="h6">Free daily boosters</Typography>
+          <Box sx={{ display: "flex" }}>
+            <Button>
+              <Card>1</Card>
+            </Button>
+            <Button>1</Button>
+          </Box>
+        </Box>
+        <Box>
+          <Typography variant="h6">Free daily boosters</Typography>
+          <Box sx={{ display: "flex" }}>
+            <Button>
+              <Card>1</Card>
+            </Button>
+            <Button>1</Button>
+          </Box>
+        </Box>
       </Box>
     </>
   );
