@@ -32,8 +32,9 @@ export const IndexPage: FC<IndexPageProps> = ({
         overflow: "hidden",
         color: "white",
         height: "100vh",
+        background: "blue",
       }}>
-      <Box
+      {/* <Box
         sx={{
           margin: "0",
           position: "absolute",
@@ -62,7 +63,7 @@ export const IndexPage: FC<IndexPageProps> = ({
             top: 0,
             margin: "auto",
           },
-        }}></Box>
+        }}></Box> */}
       <Clicker
         maxPower={maxPower}
         click={click}
