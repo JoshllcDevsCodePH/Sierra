@@ -32,9 +32,8 @@ export const IndexPage: FC<IndexPageProps> = ({
         overflow: "hidden",
         color: "white",
         height: "100vh",
-        background: "blue",
       }}>
-      {/* <Box
+      <Box
         sx={{
           margin: "0",
           position: "absolute",
@@ -56,14 +55,14 @@ export const IndexPage: FC<IndexPageProps> = ({
             borderRadius: "250px",
             background:
               "radial-gradient(81.76% 81.76% at 50% 50%, #FFF 0%, #FFE998 100%)",
-            filter: "blur(70px)",
+            // filter: "blur(70px)",
             left: 0,
             right: 0,
             bottom: 0,
             top: 0,
             margin: "auto",
           },
-        }}></Box> */}
+        }}></Box>
       <Clicker
         maxPower={maxPower}
         click={click}
