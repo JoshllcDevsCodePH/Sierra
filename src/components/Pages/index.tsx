@@ -50,12 +50,11 @@ export const IndexPage: FC<IndexPageProps> = ({
           "&:before": {
             content: '""',
             position: "absolute",
-            width: "250px",
-            height: "250px",
-            borderRadius: "250px",
+            width: "350px",
+            height: "350px",
+            borderRadius: "350px",
             background:
-              "radial-gradient(81.76% 81.76% at 50% 50%, #FFF 0%, #FFE998 100%)",
-            // filter: "blur(70px)",
+              "radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 80%);",
             left: 0,
             right: 0,
             bottom: 0,
