@@ -19,17 +19,20 @@ export const Footer: FC<FooterProps> = ({ maxPower, currentPower, progress }) =>
           alignItems: "center",
           justifyContent: "space-between",
           marginBottom: "20px",
-          marginInline: "20px",
-        }}>
-        <Box sx={{ display: "flex" }}>
-          <Icon sx={{ width: "40px", height: "35px", fontSize: "1.7rem" }}>⚡</Icon>
+          marginLeft: "20px", // Adjusted the margin here
+          marginRight: "20px", // Adjusted the margin here
+        }}
+      >
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Icon sx={{ width: "40px", height: "35px", fontSize: "1.7rem", marginRight: "5px" }}>⚡</Icon> {/* Adjusted margin here */}
           <Box>
             <Typography variant="h6" sx={{ lineHeight: 1, fontWeight: 900 }}>
               {currentPower}
             </Typography>
             <Typography
               variant="body2"
-              sx={{ lineHeight: 1, color: "rgba(255, 255, 255, 0.65)" }}>
+              sx={{ lineHeight: 1, color: "rgba(255, 255, 255, 0.65)", marginLeft: "3px" }}
+            >
               {"/  "}
               {maxPower}
             </Typography>
@@ -42,15 +45,17 @@ export const Footer: FC<FooterProps> = ({ maxPower, currentPower, progress }) =>
                 key={index}
                 sx={{ color: "white" }}
                 component={RouterLink}
-                to={menuItem.link}>
+                to={menuItem.link}
+              >
                 <Button>
                   <Box
                     sx={{
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
-                      marginInline: "10px",
-                    }}>
+                      marginLeft: "3px", // Adjusted margin here
+                    }}
+                  >
                     <Icon sx={{ width: "22px", height: "22px", fontSize: "1rem" }}>
                       {menuItem.icon}
                     </Icon>
@@ -80,6 +85,7 @@ const Menu = styled(ButtonGroup)(() => ({
 
 const menu = [
   { icon: "🧸", title: "Frens", link: "/boosts" },
-  { icon: "🪙", title: "Earn", link: "/boosts" },
+  { icon: "📚", title: "Mine", link: "/upgrade" },
+  { icon: "🪙", title: "Earn", link: "/task" },
   { icon: "🚀", title: "Boosts", link: "/boosts" },
 ];

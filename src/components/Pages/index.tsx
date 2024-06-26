@@ -11,7 +11,9 @@ export type IndexPageProps = {
   click: number;
   maxPower: number;
   progress: number;
+  saveDataToTelegram: () => void;
 };
+
 export const IndexPage: FC<IndexPageProps> = ({
   count,
   setCount,
@@ -20,6 +22,7 @@ export const IndexPage: FC<IndexPageProps> = ({
   click,
   maxPower,
   progress,
+  saveDataToTelegram // Dito walang default value
 }) => {
   return (
     <Box
@@ -32,7 +35,8 @@ export const IndexPage: FC<IndexPageProps> = ({
         overflow: "hidden",
         color: "white",
         height: "100vh",
-      }}>
+      }}
+    >
       <Box
         sx={{
           margin: "0",
@@ -61,7 +65,8 @@ export const IndexPage: FC<IndexPageProps> = ({
             top: 0,
             margin: "auto",
           },
-        }}></Box>
+        }}
+      ></Box>
       <Clicker
         maxPower={maxPower}
         click={click}
